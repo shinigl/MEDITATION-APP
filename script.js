@@ -17,7 +17,7 @@ let scrollText = document.getElementById('scroll-text');
 
 window.addEventListener('scroll', () => {
     let value = window.scrollY;
-    text.style.marginBottom = value * 2.5 + 'px';
+    text.style.marginBottom = value * 1.5 + 'px';
     layer5.style.top = value * 2.5 + 'px';
     layer4.style.marginTop = value * 1.5 + 'px';
     layer8.style.top = value * 1.5 + 'px';
