@@ -14,6 +14,7 @@ let layer13 = document.getElementById('layer13');
 let text = document.getElementById('shin-Text');
 let scrollText = document.getElementById('scroll-text');
 
+
 window.addEventListener('scroll', () => {
     let value = window.scrollY;
     text.style.marginBottom = value * 2.5 + 'px';
@@ -22,10 +23,5 @@ window.addEventListener('scroll', () => {
     layer8.style.top = value * 1.5 + 'px';
     layer8.style.marginLeft = value * 1.5 + 'px';
     layer9.style.marginLeft = value * 1.5 + 'px';
-    layer9.style.marginLeft = value * 1.5 + 'px';
     layer1.style.marginTop = value * 1.5 + 'px';
-
-  
-
- 
 });

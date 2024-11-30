@@ -82,18 +82,28 @@ body {
 }
 
 #layer1 { z-index: 1; }
-#layer2 { z-index: 2; }
-#layer3 { z-index: 3; }
+#layer2 { z-index: 1; }
+#layer3 { z-index: 1; }
 #layer4 { z-index: 5; }
 #layer5 { z-index: 10; }
 #layer6 { z-index: 1; }
-#layer7 { z-index: 3; }
+#layer7 { z-index: 1; }
 #layer8 { z-index: 15; }
 #layer9 { z-index: 9; }
 #layer10 { z-index: 1; }
 #layer11 { z-index: 7; }
-#layer12 { z-index: 12; }
+#layer12 { z-index: 10; }
 #layer13 { z-index: 5; }
+
+#layer1, #layer2, #layer3, #layer4, #layer5, #layer6, #layer7, #layer8, 
+#layer9, #layer10, #layer11, #layer12, #layer13 {
+    object-fit: cover;
+    width: 100%; /* Ensure images take the full width */
+    height: 100%; /* Ensure images take the full height of their container */
+    position: absolute; /* So the layers stack on top of each other */
+}
+
+
 
 
 .center-content {
@@ -102,7 +112,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
-    z-index: 14;
+    z-index: 80;
     max-width: 800px;
 }
 
@@ -110,6 +120,7 @@ body {
     font-size: 60px;
     font-weight: 600;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .center-content p {
@@ -125,6 +136,10 @@ body {
 }
 
 .about-section {
+    background-image: url(Assets-Aniket/foggy\ sky.jpeg);
+    background-position: center;
+    background-size: cover;
+
     padding: 60px 20px;
     background-color: #fff;
     text-align: center;
@@ -240,6 +255,7 @@ body {
         justify-content: flex-end;
     }
 
+    
     .center-content h1 {
         font-size: 32px;
     }
@@ -272,9 +288,7 @@ body {
 }
 
 @media (max-width: 768px) {
-    header {
-        padding: 20px;
-    }
+   
 
     .logo img {
         width: 70px;
