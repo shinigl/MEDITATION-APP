@@ -25,3 +25,11 @@ window.addEventListener('scroll', () => {
     layer9.style.marginLeft = value * 1.5 + 'px';
     layer1.style.marginTop = value * 1.5 + 'px';
 });
+
+document.getElementById('share-progress-btn').addEventListener('click', function() {
+    const subject = encodeURIComponent("Sharing my progress on ShinHaven");
+    const body = encodeURIComponent("Hi ShinHaven Team,\n\nI would like to share my progress and experiences so far. Here's what I have achieved:\n\n1. [Insert achievement]\n2. [Insert achievement]\n\nLooking forward to more growth and peace.\n\nBest regards,\n[Your Name]");
+    const mailtoLink = `mailto:contact@shinhaven.com?subject=${subject}&body=${body}`;
+
+    window.location.href = mailtoLink;
+});
