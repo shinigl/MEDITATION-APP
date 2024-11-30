@@ -113,7 +113,7 @@ body {
     transform: translate(-50%, -50%);
     color: #fff;
     z-index: 80;
-    max-width: 800px;
+    max-width:800px;
 }
 
 .center-content h1 {
@@ -124,7 +124,7 @@ body {
 }
 
 .center-content p {
-    font-size: 22px;
+    font-size: 32px;
     line-height: 1.6;
     font-weight: 300;
     text-align: center;
@@ -141,7 +141,7 @@ body {
     text-align: center;
     color: #333;
     padding: 60px 20px;
-    overflow: hidden; /* Ensure no overflow from rotated image */
+    overflow: hidden; 
 }
 
 .about-section::before {
@@ -151,32 +151,35 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(Assets-Aniket/0-Background.png);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(Assets-Aniket/0-Background.png);
     background-position: center;
     background-size: cover;
     transform: rotate(180deg); /* Rotate the image 180 degrees */
     z-index: 0; /* Ensure the image stays behind the content */
 }
 
-/* Keep the other styles the same */
+
+
 .about-section h2 {
-    font-size: 36px;
+    font-size: 50px;
     font-weight: bolder;
     margin-bottom: 20px;
     text-transform: uppercase;
     color: #fff;
     letter-spacing: 1px;
     position: relative;
+    text-decoration: underline;
 }
 
 
 .about-section p {
-    font-size: 18px;
+    font-size: 22px;
     line-height: 1.8;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     color: #fff;
     position: relative;
+    text-align: start;
 }
 
 .cards-container {
@@ -225,7 +228,7 @@ body {
 }
 
 .footer {
-    background-color: #333;
+    background-color: #82cadb;
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -256,7 +259,7 @@ body {
 }
 
 .footer-links a:hover {
-    color: goldenrod;
+    color: gold;
     text-decoration: none;
 }
 
