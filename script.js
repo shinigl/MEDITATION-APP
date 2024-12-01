@@ -33,3 +33,36 @@ document.getElementById('share-progress-btn').addEventListener('click', function
 
     window.location.href = mailtoLink;
 });
+
+//Sign Up button
+window.onload = function() {
+    const username = localStorage.getItem('username');
+    const signUpButton = document.getElementById('sign-up-btn');
+    const logoutButton = document.getElementById('logout-btn');
+    const greeting = document.getElementById('greeting');
+
+    if (username) {
+        // If the user is logged in, show the username and greeting message
+        signUpButton.style.display = 'none';  
+        greeting.innerText = `Hello ${username}!`;
+        
+        // Show the logout button
+        logoutButton.style.display = 'block';
+    } else {
+        // If no user is logged in, display the Sign-Up button
+        signUpButton.style.display = 'block';
+        greeting.innerText = ''; // Clear the greeting when not logged in
+    }
+};
+
+
+
+
+function logout() {
+    // Clear user data from localStorage
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
+
+    // Refresh the page to reflect the changes
+    window.location.reload();
+}

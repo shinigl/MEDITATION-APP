@@ -14,11 +14,14 @@
         <div class="logo">
             <img src="Assets-Aniket/ShinHaven.jpg" alt="ShinHaven Logo">
         </div>
-        
+
         <div class="auth-buttons">
-            <button id="share-progress-btn" class="share-progress-btn">Share Your Progress</button>
+            <button id="sign-up-btn" onclick="location.href='signup.html'">Sign Up</button>
+            <p id="greeting"></p>
+            <button id="logout-btn" style="display: none;" onclick="logout()">Logout</button>
         </div>
     </header>
+
 
     <!-- Parallax Section -->
     <div class="parallax">
@@ -52,6 +55,7 @@
             <p>Whether you are new to meditation or experienced in spiritual practices, ShinHaven provides a sanctuary
                 for people from all walks of life.</p>
 
+            <button id="share-progress-btn" style="position: relative;" class="share-progress-btn">Share Your Progress</button>
             <div class="cards-container">
                 <a href="music.html" class="card" id="music-card">
                     <img src="Assets-Aniket/piano-nature.jpeg" alt="Music" class="card-img">
@@ -76,7 +80,7 @@
             </div>
         </section>
     </main>
-
+    
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2024 ShinHaven. Designed by Aniket Kumar .</p>
