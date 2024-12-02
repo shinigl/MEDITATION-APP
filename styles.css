@@ -35,6 +35,11 @@ body {
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
 }
 
+#logout-btn:hover{
+ background-color: rgba(255, 0, 0, 0.829);;
+}
+
+
 .auth-buttons {
     display: flex;
     justify-content: flex-end;

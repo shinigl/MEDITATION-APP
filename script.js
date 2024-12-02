@@ -44,7 +44,8 @@ window.onload = function() {
     if (username) {
         // If the user is logged in, show the username and greeting message
         signUpButton.style.display = 'none';  
-        greeting.innerText = `Hello ${username}!`;
+        greeting.innerText = `Hello ${username}!😇 `;
+        greeting.style.textShadow = `3px 3px 12px grey`
         
         // Show the logout button
         logoutButton.style.display = 'block';

@@ -44,8 +44,8 @@ body {
 h1 {
     font-size: 32px;
     margin-bottom: 30px;
-    font-weight: 600; /* Apply font weight for bold effect */
-    color: #333; /* Dark color for the heading */
+    font-weight: 600; 
+    color: #333; 
 }
 
 
