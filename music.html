@@ -30,10 +30,11 @@ header {
     background-color: #1a1a1a;
     display: flex;
     justify-content: space-between;
+
 }
 
 header .logo img {
-    width: 50px;
+    width: 70px;
     height: auto;
 }
 
@@ -213,7 +214,13 @@ h3 {
     .card {
         width: 45%; /* 2 cards per row on tablets */
     }
-
+    .logo {
+      display: flex;
+      align-items: center;
+     & > a img{
+        width: 50px;
+    }
+}
     .modal-content {
         width: 80%; /* Make modal content take more width on small screens */
     }
