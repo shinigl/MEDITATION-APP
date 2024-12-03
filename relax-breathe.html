@@ -6,125 +6,8 @@
     <title>Relax & Breathe</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/output.css">
-    <link rel="stylesheet" href="animations.css"> 
+    <link rel="stylesheet" href="relax-breathe.css"> 
     <link rel="shortcut icon" href="Assets-Aniket/ShinHaven.jpeg" type="image/x-icon">
-
-    <style>
-        body {
-            background-image: 
-                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                url('Assets-Aniket/song6.jpg'); 
-            background-size: cover; 
-            background-position: center; 
-            background-attachment: fixed; 
-            color: white; 
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .logo {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 80px;
-            height: auto;
-            cursor: pointer;
-            border-radius: 50%;
-            padding: 8px;
-            background-color: rgba(255, 255, 255, 0.7);
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .logo img {
-            width: 100%;
-            height: auto;
-            border-radius: 50%;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
-        }
-
-        .card {
-            width: 100%;
-            max-width: 900px;
-            height: 280px;
-            background-size: cover; 
-            background-position: center; 
-            background-repeat: no-repeat; 
-            border-radius: 1rem; 
-            transition: all 0.3s ease-in-out; 
-        }
-
-        .card:hover {
-            transform: scale(1.05); 
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); 
-        }
-
-        .card .overlay {
-            transition: all 0.3s ease; 
-        }
-
-        .card:hover .overlay {
-            opacity: 0.3; 
-        }
-
-        .btn {
-            position: relative;
-            overflow: hidden;
-            padding: 8px 18px; 
-            font-size: 0.9rem; 
-            font-weight: 600;
-            border-radius: 0.375rem; 
-            color: #ffffff;
-            display: inline-block;
-            text-align: center;
-            cursor: pointer;
-            transition: color 0.4s ease, background 0.4s ease, transform 0.4s ease;
-            z-index: 0;
-            background-color: transparent; 
-        }
-
-        .btn-read-more {
-            background-color: #12c580; 
-        }
-
-        .btn-start {
-            background-color: #2563EB; 
-        }
-
-        .btn:hover {
-            transform: scale(1.05); 
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
-        }
-
-        .btn-read-more:hover {
-            color: #000000; 
-            background-color: #ffffff; 
-        }
-
-        .btn-start:hover {
-            color: #000000; 
-            background-color: #ffffff; 
-        }
-
-        .card p {
-            font-size: 1.125rem; 
-        }
-
-        @media screen and (max-width: 768px) {
-            .logo {
-                width: 50px;
-            }
-            .heading {
-                font-size: 1.6rem;
-                margin-bottom: 40px;
-                margin-left: 30px;
-            }
-        }
-    </style>
-
 </head>
 <body>
 
@@ -150,12 +33,13 @@
                     <div>
                         <h2 class="text-3xl font-bold mb-2">Deep Breathing</h2>
                         <p class="text-lg mb-4">
-                            Deep breathing is one of the best ways to relax and let your worries go. It’s simple and effective for reducing stress.
-                        </p>
+                            It helps reduce stress by calming the nervous system, improves focus and mental clarity by increasing oxygen flow to the brain, and enhances emotional stability by promoting relaxation. </p>
                     </div>
                     <div class="flex justify-center gap-6 mb-4">
                         <a target="_blank" href="https://www.healthline.com/health/diaphragmatic-breathing" class="btn btn-read-more w-32">Read More</a>
-                        <button class="btn btn-start w-32" id="startBtn">START</button>
+                        <a href="Breathing links/deep-breathing.html" class="btn btn-start c1 w-32">
+                            <button id="startBtn">START</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -172,7 +56,9 @@
                     </div>
                     <div class="flex justify-center gap-6 mb-4">
                         <a target="_blank" href="https://www.healthline.com/health/4-7-8-breathing" class="btn btn-read-more w-32">Read More</a>
-                        <button class="btn btn-start w-32">START</button>
+                        <a href="Breathing links/478.html" class="btn btn-start c2 w-32">
+                            <button>START</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -180,12 +66,6 @@
         </div>
 
     </div>
-
-   <script>
-  
-
-
-   </script>
 
 </body>
 </html>
