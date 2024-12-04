@@ -1,4 +1,4 @@
-let countdownTimer;  // Variable to store the countdown timer reference
+let countdownTimer;  
 
 // Open modal function
 function openModal(modalId) {
@@ -91,6 +91,6 @@ function closeAllModals() {
 // Function to handle multiple modals
 function openSpecificModal(modalId) {
     const allModals = document.querySelectorAll('.modal');
-    allModals.forEach(modal => modal.style.display = 'none');  // Close all modals first
-    openModal(modalId);  // Then open the specific modal
+    allModals.forEach(modal => modal.style.display = 'none');  
+    openModal(modalId);  
 }

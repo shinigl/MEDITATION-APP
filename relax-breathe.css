@@ -1,4 +1,4 @@
-/* Body Styling */
+
 body {
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
@@ -10,7 +10,7 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* Logo Styling */
+
 .logo {
     position: absolute;
     top: 20px;
@@ -36,7 +36,7 @@ body {
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
 }
 
-/* Card Styling */
+
 .card {
     width: 100%;
     max-width: 900px;
@@ -105,12 +105,12 @@ body {
     background-color: #ffffff; 
 }
 
-/* Styling for the <a> tag surrounding the button */
+
 a.btn {
-    text-decoration: none; /* Remove underline */
+    text-decoration: none; 
 }
 
-/* Responsive Design for Mobile */
+
 @media screen and (max-width: 768px) {
     .logo {
         width: 50px;
