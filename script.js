@@ -26,13 +26,13 @@ window.addEventListener('scroll', () => {
     layer1.style.marginTop = value * 1.5 + 'px';
 });
 
-document.getElementById('share-progress-btn').addEventListener('click', function() {
-    const subject = encodeURIComponent("Sharing my progress on ShinHaven");
-    const body = encodeURIComponent("Hi ShinHaven Team,\n\nI would like to share my progress and experiences so far. Here's what I have achieved:\n\n1. [Insert achievement]\n2. [Insert achievement]\n\nLooking forward to more growth and peace.\n\nBest regards,\n[Your Name]");
-    const mailtoLink = `mailto:contact@shinhaven.com?subject=${subject}&body=${body}`;
+// document.getElementById('share-progress-btn').addEventListener('click', function() {
+//     const subject = encodeURIComponent("Sharing my progress on ShinHaven");
+//     const body = encodeURIComponent("Hi ShinHaven Team,\n\nI would like to share my progress and experiences so far. Here's what I have achieved:\n\n1. [Insert achievement]\n2. [Insert achievement]\n\nLooking forward to more growth and peace.\n\nBest regards,\n[Your Name]");
+//     const mailtoLink = `mailto:contact@shinhaven.com?subject=${subject}&body=${body}`;
 
-    window.location.href = mailtoLink;
-});
+//     window.location.href = mailtoLink;
+// });
 
 //Sign Up button
 window.onload = function() {
@@ -67,3 +67,112 @@ function logout() {
     // Refresh the page to reflect the changes
     window.location.reload();
 }
+
+//Mood Tracker
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Array to store mood history
+    let moodHistory = [];
+
+    // Select all mood buttons and add event listeners to them
+    const moodButtons = document.querySelectorAll('.mood-btn');
+    
+    moodButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            setMood(button.textContent.trim());
+        });
+    });
+
+    // Function to set the mood for the day and redirect after a brief delay
+    function setMood(mood) {
+        console.log(`Mood set to: ${mood}`);  // Debugging message
+
+        // Sanitize mood to create a valid class name (remove spaces and special characters)
+        const sanitizedMood = sanitizeMood(mood);
+
+        // Create a new mood entry with the current date
+        const moodEntry = {
+            mood: mood,
+            sanitizedMood: sanitizedMood,
+            date: new Date().toLocaleDateString(),  // Current date in 'MM/DD/YYYY' format
+            suggestion: getMoodSuggestion(mood)  // Get the suggestion based on the mood
+        };
+
+        // Add the new entry to the mood history
+        moodHistory.push(moodEntry);
+
+        // Update the mood history display
+        updateMoodHistory();
+
+        // Wait for 3 seconds (after showing the suggestion) before redirecting
+        setTimeout(() => {
+            redirectToSuggestedPage(mood);
+        }, 3000); // Redirect after 3 seconds
+    }
+
+    // Function to sanitize mood string for use as a class name
+    function sanitizeMood(mood) {
+        return mood.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+    }
+
+    // Function to update the mood history on the page
+    function updateMoodHistory() {
+        const historyList = document.getElementById('history-list');
+
+        // Clear the existing history list
+        historyList.innerHTML = '';
+
+        // Loop through each mood entry and display it
+        moodHistory.forEach(entry => {
+            const li = document.createElement('li');
+            li.classList.add(entry.sanitizedMood);  // Add sanitized mood as a class for styling
+            li.innerHTML = `${entry.date}: <strong>${entry.mood}</strong><br><em>${entry.suggestion}</em>`;
+            li.style.listStyle='none';
+            historyList.appendChild(li);
+        });
+    }
+
+    // Function to generate a suggestion based on the mood
+    function getMoodSuggestion(mood) {
+        switch (mood) {
+            case '😊 Happy':
+                return 'Based on your mood, we recommend exploring the music section to enhance your joy.';
+            case '😌 Calm':
+                return 'Since you’re feeling calm, the scenery section will help you connect with tranquility.';
+            case '😫 Stressed':
+                return 'It seems like you’re stressed. Take a break and explore relaxation techniques to ease your mind.';
+            case '😟 Anxious':
+                return 'Feeling anxious? A mind chat might help you find clarity and peace of mind.';
+            case '😢 Sad':
+                return 'You may benefit from soothing music to uplift your spirits and find peace.';
+            default:
+                return 'We couldn\'t determine a suggestion for your mood at the moment.';
+        }
+    }
+
+    // Function to handle the page redirection based on the mood
+    function redirectToSuggestedPage(mood) {
+        switch (mood) {
+            case '😊 Happy':
+                window.location.href = 'music.html';  // Redirect to the Music section
+                break;
+            case '😌 Calm':
+                window.location.href = 'scene.html';  // Redirect to the Scenery section
+                break;
+            case '😫 Stressed':
+                window.location.href = 'relax-breathe.html';  // Redirect to Relaxation section
+                break;
+            case '😟 Anxious':
+                window.location.href = 'mind-chat.html';  // Redirect to the Mind Chat section
+                break;
+            case '😢 Sad':
+                window.location.href = 'music.html';  // Redirect to the Music section (or any other page you find appropriate)
+                break;
+            default:
+                console.log('Invalid mood selection');
+        }
+    }
+
+    // Initial call to load mood history if any
+    updateMoodHistory();
+});
