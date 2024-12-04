@@ -73,6 +73,9 @@ p {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card img {
@@ -124,13 +127,15 @@ p {
 .modal-content {
     position: relative;
     background-color: #222;
-    padding: 30px;
+    padding: 0;
     max-width: 90%;
     max-height: 90%;
-    border-radius: 10px;
-    overflow: hidden;
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .close {
@@ -142,8 +147,9 @@ p {
     cursor: pointer;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 12px;
-    padding: 0px 5px;
+    padding: 5px;
     transition: background 0.3s ease;
+    z-index: 100;
 }
 
 .close:hover {
@@ -153,35 +159,64 @@ p {
 /* Video Player */
 .video-player {
     width: 100%;
-    height: 400px;
+    height: 100%;
     object-fit: cover;
     border-radius: 10px;
 }
 
-/* Controls for the video */
+/* Controls */
 .controls {
-    margin-top: 15px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
+    position: absolute;
+    bottom: 20px;
+    z-index: 10;
 }
 
 .controls button {
-    background-color: #333;
+    background-color: #444;
     color: #fff;
-    padding: 12px 20px;
+    padding: 12px 24px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s ease, transform 0.3s ease;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Hover Effects for Controls */
 .controls button:hover {
-    background-color: #555;
+    background-color: #666;
     transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-/* Animation for modal */
+.controls button:active {
+    background-color: #555;
+    transform: translateY(2px);
+}
+
+/* Timer Styles */
+.timer {
+    font-size: 1.5em;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover Effects for Timer */
+.timer:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
+/* Modal Animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -193,81 +228,71 @@ p {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-    h2 {
-        font-size: 2em;
+    .modal-content {
+        padding: 10px;
+        width: 100%;
+        height: 100%;
     }
 
-    .cards-container {
-        grid-template-columns: 1fr;
-        gap: 15px;
+    .close {
+        font-size: 1.5em;
     }
 
-    .card {
-        height: 250px;
-    }
-
-    .card h3 {
-        font-size: 1.2em;
-        padding: 8px;
-    }
-
-    .video-player {
-        height: 300px;
+    .controls {
+        bottom: 10px;
+        gap: 10px;
     }
 
     .controls button {
+        padding: 8px 5px;
+        font-size: 0.2rem;
+    }
+
+    .timer {
+        font-size: 1.1em;
         padding: 8px 15px;
     }
 }
 
 /* Tablet Responsiveness */
 @media (max-width: 1024px) {
-    .cards-container {
-        grid-template-columns: repeat(2, 1fr);
+    .modal-content {
+        width: 90%;
+        height: 90%;
+    }
+
+    .controls {
         gap: 15px;
+    }
+
+    .controls button {
+        padding: 10px 18px;
+    }
+
+    .timer {
+        padding: 10px 18px;
+        font-size: 1.3em;
+    }
+}
+
+/* Mobile View - 375px */
+@media (max-width: 375px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+        justify-items: center;
     }
 
     .card {
         height: 300px;
     }
 
-    .card h3 {
-        font-size: 1.3em;
-    }
-
     .controls button {
         padding: 10px 18px;
+        font-size: 0.85rem;
+    }
+
+    .timer {
+        font-size: 1.2em;
+        padding: 10px 15px;
     }
 }
-
-/* Small Mobile Responsiveness (375px) */
-@media (max-width: 375px) {
-    .cards-container {
-        grid-template-columns: 1fr;
-    }
-
-    .card {
-        height: 220px;
-    }
-
-    .card h3 {
-        font-size: 1.1em;
-        padding: 6px;
-        white-space: normal;
-        text-overflow: unset;
-    }
-}
-
-/* Modal Fullscreen on Mobile and Smaller Screens */
-@media (max-width: 768px) {
-    .modal-content {
-        width: 100%;
-        height: 100%;
-        padding: 20px;
-    }
-
-    .close {
-        font-size: 1.5em;
-    }
-}
-
