@@ -16,9 +16,7 @@ You can experience ShinHaven live by visiting the following link:
 2. [Features](#features)
 3. [How to Use](#how-to-use)
 4. [Technologies Used](#technologies-used)
-5. [Getting Started](#getting-started)
-6. [Contributing](#contributing)
-7. [License](#license)
+
 
 ## About the Project
 
