@@ -71,63 +71,54 @@ function logout() {
 //Mood Tracker
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Array to store mood history
     let moodHistory = [];
 
-    // Select all mood buttons and add event listeners to them
     const moodButtons = document.querySelectorAll('.mood-btn');
-    
+    const historyList = document.getElementById('history-list');
+    const moodHistorySection = document.getElementById('mood-history');
+    const clearHistoryButton = document.getElementById('clear-history');
+
+    // Add event listeners to mood buttons
     moodButtons.forEach(button => {
         button.addEventListener('click', function() {
             setMood(button.textContent.trim());
         });
     });
 
-    // Function to set the mood for the day and redirect after a brief delay
+    // Function to set the mood for the day and update history
     function setMood(mood) {
-        console.log(`Mood set to: ${mood}`);  // Debugging message
+        console.log(`Mood set to: ${mood}`);
 
-        // Sanitize mood to create a valid class name (remove spaces and special characters)
+        // Sanitize mood to create a valid class name
         const sanitizedMood = sanitizeMood(mood);
 
         // Create a new mood entry with the current date
         const moodEntry = {
             mood: mood,
             sanitizedMood: sanitizedMood,
-            date: new Date().toLocaleDateString(),  // Current date in 'MM/DD/YYYY' format
-            suggestion: getMoodSuggestion(mood)  // Get the suggestion based on the mood
+            date: new Date().toLocaleDateString(), // Current date
+            suggestion: getMoodSuggestion(mood)  // Get suggestion based on mood
         };
 
-        // Add the new entry to the mood history
+        // Add new mood entry to the history
         moodHistory.push(moodEntry);
 
         // Update the mood history display
         updateMoodHistory();
 
-        // Show the modal with redirection message
+        // Display the mood history section
+        moodHistorySection.style.display = 'block'; // Show the history section
+
+        // Show the clear history button
+        clearHistoryButton.style.display = 'block';
+        
+        // Show the redirect modal
         showRedirectModal(mood);
     }
 
     // Function to sanitize mood string for use as a class name
     function sanitizeMood(mood) {
         return mood.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-    }
-
-    // Function to update the mood history on the page
-    function updateMoodHistory() {
-        const historyList = document.getElementById('history-list');
-
-        // Clear the existing history list
-        historyList.innerHTML = '';
-
-        // Loop through each mood entry and display it
-        moodHistory.forEach(entry => {
-            const li = document.createElement('li');
-            li.classList.add(entry.sanitizedMood);  // Add sanitized mood as a class for styling
-            li.innerHTML = `${entry.date}: <strong>${entry.mood}</strong><br><em>${entry.suggestion}</em>`;
-            li.style.listStyle='none';
-            historyList.appendChild(li);
-        });
     }
 
     // Function to generate a suggestion based on the mood
@@ -148,47 +139,72 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Function to show the redirection modal
+    // Function to update the mood history on the page
+    function updateMoodHistory() {
+        // Clear the existing history
+        historyList.innerHTML = '';
+
+        // Loop through each mood entry and display it
+        moodHistory.forEach(entry => {
+            const li = document.createElement('li');
+            li.classList.add(entry.sanitizedMood);  // Add sanitized mood as a class
+            li.innerHTML = `${entry.date}: <strong>${entry.mood}</strong><br><em>${entry.suggestion}</em>`;
+            li.style.listStyle='none';
+            historyList.appendChild(li);
+        });
+    }
+
+    // Function to show the redirect modal (same as before)
     function showRedirectModal(mood) {
         const modal = document.getElementById('redirect-modal');
         const message = document.getElementById('redirect-message');
         const suggestion = document.getElementById('suggested-action');
 
-        // Set the redirection message and suggestion text
         message.textContent = `You are feeling ${mood}!`;
         suggestion.textContent = getMoodSuggestion(mood);
 
         // Display the modal
         modal.style.display = 'flex';
 
-        // Hide the modal after 3 seconds and perform the redirection
+        // Hide the modal and redirect after 3 seconds
         setTimeout(() => {
             modal.style.display = 'none';  // Hide the modal
             redirectToSuggestedPage(mood);  // Perform redirection
         }, 3000); // 3 seconds delay
     }
 
-    // Function to handle the page redirection based on the mood
+    // Function to handle page redirection based on mood
     function redirectToSuggestedPage(mood) {
         switch (mood) {
             case '😊 Happy':
-                window.location.href = 'music.html';  // Redirect to the Music section
+                window.location.href = 'music.html';
                 break;
             case '😌 Calm':
-                window.location.href = 'scene.html';  // Redirect to the Scenery section
+                window.location.href = 'scene.html';
                 break;
             case '😫 Stressed':
-                window.location.href = 'relax-breathe.html';  // Redirect to Relaxation section
+                window.location.href = 'relax-breathe.html';
                 break;
             case '😟 Anxious':
-                window.location.href = 'mind-chat.html';  // Redirect to the Mind Chat section
+                window.location.href = 'mind-chat.html';
                 break;
             case '😢 Sad':
-                window.location.href = 'music.html';  // Redirect to the Music section (or any other page you find appropriate)
+                window.location.href = 'music.html';
                 break;
             default:
                 console.log('Invalid mood selection');
         }
+    }
+
+    // Function to clear mood history
+    function clearMoodHistory() {
+        moodHistory = [];  // Clear the history array
+        updateMoodHistory();  // Update the display
+
+        // Hide the history section and clear history button
+        moodHistorySection.style.display = 'none';
+        clearHistoryButton.style.display = 'none';
+        clearHistoryButton.style.alignSelf='center';
     }
 
     // Initial call to load mood history if any

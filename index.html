@@ -32,12 +32,12 @@
         <img src="Assets-Aniket/6-mountain.png" alt="mountain2" class="parallax-layer" id="layer5">
         <img src="Assets-Aniket/7-fog.png" alt="fog3" class="parallax-layer" id="layer6">
         <img src="Assets-Aniket/9-fog.png" alt="fog4" class="parallax-layer" id="layer7">
-        
+
         <div class="center-content">
             <h1 id="shin-Text">Welcome to ShinHaven</h1>
             <p id="scroll-text">Scroll down to find your inner peace and spiritual growth.</p>
         </div>
-        
+
         <img src="Assets-Aniket/10-rock.png" alt="rock" class="parallax-layer" id="layer8">
         <img src="Assets-Aniket/11-rock-.png" alt="rock2" class="parallax-layer" id="layer9">
         <img src="Assets-Aniket/12-fog.png" alt="fog5" class="parallax-layer" id="layer10">
@@ -55,7 +55,7 @@
             <p>Whether you are new to meditation or experienced in spiritual practices, ShinHaven provides a sanctuary
                 for people from all walks of life.</p>
 
-            
+
             <div class="cards-container">
                 <a href="music.html" class="card" id="music-card">
                     <img src="Assets-Aniket/piano-nature.jpeg" alt="Music" class="card-img">
@@ -78,7 +78,7 @@
                     <p>Join discussions and chats focused on mental well-being and growth.</p>
                 </a>
             </div>
-           
+
         </section>
         <section id="mood-tracker">
             <h2>Track Your Mood</h2>
@@ -92,28 +92,30 @@
                 <button class="mood-btn" id="sad">😢 Sad</button>
             </div>
         
-            <div id="mood-history">
+            <div id="mood-history" style="display: none;">
                 <h3>Your Mood History</h3>
                 <ul id="history-list">
                     <!-- Mood history will be listed here -->
                 </ul>
+                <button style="align-self: center;" id="clear-history" onclick="clearMoodHistory()">Clear History</button>
             </div>
         </section>
-        <!-- Modal for Redirection Notification -->
-<div id="redirect-modal" class="redirect-modal">
-    <div class="modal-content">
-        <span class="close-btn" id="close-modal">&times;</span>
-        <h2 id="redirect-message"></h2>
-        <p id="suggested-action"></p>
-    </div>
-</div>
-
         
+        <!-- Modal for Redirection Notification -->
+        <div id="redirect-modal" class="redirect-modal">
+            <div class="modal-content">
+              
+                <h2 id="redirect-message"></h2>
+                <p id="suggested-action"></p>
+            </div>
+        </div>
+
+
     </main>
 
-    
-    
-    
+
+
+
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2024 ShinHaven. Designed by Aniket Kumar .</p>

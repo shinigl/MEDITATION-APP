@@ -406,6 +406,76 @@ h2 {
 .mood-btn:hover {
     transform: scale(1.1);
 }
+/* Mood History Section */
+#mood-history {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    justify-content: center;  
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
+    width: 80%; 
+    margin-left: auto;
+    margin-right: auto; 
+    display: none; 
+}
+
+
+/* Clear History Button Styling */
+#clear-history {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #ff4d4d; 
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s ease;
+    text-align: center;
+    width: 250px; 
+    display: block; 
+    text-decoration: none;
+}
+
+/* Hover effect for Clear History button */
+#clear-history:hover {
+    background-color: #cc0000; /* Darker red on hover */
+    transform: scale(1.05); /* Slight scaling on hover */
+}
+
+/* Focus effect for Clear History button */
+#clear-history:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.7); /* Glow effect when focused */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #clear-history {
+        width: 80%; /* Button takes 80% of the screen width on mobile */
+        font-size: 16px; /* Adjust font size for small screens */
+    }
+}
+
+
+#mood-history {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 
 #happy {
     background-color: #ffeb3b;
@@ -472,6 +542,7 @@ h2 {
     cursor: pointer;
     color: #333;
 }
+
 
 /* Animation for Modal Appearance */
 @keyframes fadeIn {
