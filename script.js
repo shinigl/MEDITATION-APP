@@ -104,10 +104,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Update the mood history display
         updateMoodHistory();
 
-        // Wait for 3 seconds (after showing the suggestion) before redirecting
-        setTimeout(() => {
-            redirectToSuggestedPage(mood);
-        }, 3000); // Redirect after 3 seconds
+        // Show the modal with redirection message
+        showRedirectModal(mood);
     }
 
     // Function to sanitize mood string for use as a class name
@@ -148,6 +146,26 @@ document.addEventListener('DOMContentLoaded', function () {
             default:
                 return 'We couldn\'t determine a suggestion for your mood at the moment.';
         }
+    }
+
+    // Function to show the redirection modal
+    function showRedirectModal(mood) {
+        const modal = document.getElementById('redirect-modal');
+        const message = document.getElementById('redirect-message');
+        const suggestion = document.getElementById('suggested-action');
+
+        // Set the redirection message and suggestion text
+        message.textContent = `You are feeling ${mood}!`;
+        suggestion.textContent = getMoodSuggestion(mood);
+
+        // Display the modal
+        modal.style.display = 'flex';
+
+        // Hide the modal after 3 seconds and perform the redirection
+        setTimeout(() => {
+            modal.style.display = 'none';  // Hide the modal
+            redirectToSuggestedPage(mood);  // Perform redirection
+        }, 3000); // 3 seconds delay
     }
 
     // Function to handle the page redirection based on the mood
