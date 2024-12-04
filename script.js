@@ -202,6 +202,8 @@ document.addEventListener('DOMContentLoaded', function () {
         updateMoodHistory();  // Update the display
 
         // Hide the history section and clear history button
+        moodHistorySection.textContent = '';
+
         moodHistorySection.style.display = 'none';
         clearHistoryButton.style.display = 'none';
         clearHistoryButton.style.alignSelf='center';
