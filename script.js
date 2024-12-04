@@ -197,6 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Function to clear mood history
+   
     function clearMoodHistory() {
         moodHistory = [];  // Clear the history array
         updateMoodHistory();  // Update the display
@@ -208,6 +209,7 @@ document.addEventListener('DOMContentLoaded', function () {
         clearHistoryButton.style.display = 'none';
         clearHistoryButton.style.alignSelf='center';
     }
+    clearHistoryButton.addEventListener('click', clearMoodHistory);
 
     // Initial call to load mood history if any
     updateMoodHistory();
